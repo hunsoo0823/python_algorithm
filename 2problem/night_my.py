@@ -21,5 +21,5 @@ for i in steps:
     # 해당 위치로 이동 가능할시 카운트 증가
     if next_row < 9 and next_row > 0 and next_colums < 9 and next_colums > 0:
         count += 1
-    
+
 print(count)
