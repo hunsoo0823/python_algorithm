@@ -6,18 +6,21 @@
   - 출력조건
     첫째 줄에 최소 이동 칸의 개수를 출력한다.
 """
-
+# n * m을 입력받음
 n, m = map(int,input().split())
 
+# 미로를 만들기 위한 맵
 mapping = []
+# 미로를 헌줄씩 입력받음
 for i in range(n):
     mapping.append(list(map(int,input())))
 
 def escape(x,y,bx,by):
-
+    # 범위를 벗어나면 무시
     if x<0 or x>=n or y<0 or y>=m:
         return False
 
+    # 지나갈 수 있을 때 루트
     if mapping[x][y] == 1:
         if x > 0 or y > 0:
             mapping[x][y] = mapping[bx][by] + 1
