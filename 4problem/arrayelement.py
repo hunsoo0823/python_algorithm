@@ -16,6 +16,7 @@ b = list(map(int, input().split())) # 배열 B의 모든 원소를 입력받기
 a.sort() # 내림차순
 b.sort(reverse=True) #오름차순
 
+
 for i in range(k):
     if a[i]<b[i]:
         a[i], b[i] = b[i], a[i]
