@@ -14,7 +14,9 @@ a = list(map(int, input().split())) # 배열 A의 모든 원소를 입력받기
 b = list(map(int, input().split())) # 배열 B의 모든 원소를 입력받기
 
 a.sort() # 내림차순
-b.sort(reverse=True) #오름차순
+b.sort(reverse=True) #₩오름차순
+
+
 
 
 
