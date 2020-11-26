@@ -6,63 +6,15 @@
 ( 2<=N<1,000 , 1<=M<=10,000, 1<=K<=10,000) 각 자연수는 공백으로 구분, K <= M
 """
 
-# N,M,K를 공백으로 구분하여 입력 받기
+# n,m,k 의 값 입력받기
 n,m,k = map(int, input().split())
-# N개의 수를 공백으로 구분하여 입력 받기
-data = list(map(int, input().split()))
 
-data.sort()
-first = data[n-1] # 가장 큰 수
-second = data[n-2] # 두번째로 큰 수
-result = 0
-temp = k # k의 횟수를 세줄 임시 변
-um = m
+# 입력 array
+input_ary=list(map(int, input().split()))
+input_ary.sort(reverse=True)
 
-# 1
-while True:
-    if um == 0: # m이 0이면 반복문 탈출
-        break
-    else:
-        result += first # 가장 큰 수 k 더하기
-        um -= 1
-        temp -= 1
-        if temp == 0: # k번 더하고 , m이 0이 아닌경
-            if um != 0:
-                result += second # 두번째 큰 수를 더하
-                um -= 1
-                temp = k # 임수 변수 초기화
+first_big = input_ary[0]
+second_big = input_ary[1]
+
+result = (m // (k+1)) * (first_big*k + second_big) + (first_big * m%(k+1)) # 결과 계산
 print(result)
-
-um = m
-result = 0
-
-# 2
-while True:
-    for i in range(k): # 가장 큰 수를 K번 더하기
-        if um == 0: # m이 0이라면 반복문 탈출
-            break
-        result += first
-        um -= 1 # 더할 때 마다 1씩 뺴기
-    if um == 0: # m이 0이라면 반복문 탈출
-        break
-    result += second # 두 번째로 큰 수를 한번 더하기
-    um -= 1 # 더할 때마다 1씩 빼기
-
-print(result)
-
-# 3
-um = m
-result = 0
-
-count = int(um/(k+1)) * k + m % (k+1) # 가장 큰 수가 더해지는 횟수 계
-result += count * first
-result += (um-count) * second
-
-print(result)
-
-
-
-
-
-
-
