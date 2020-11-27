@@ -4,22 +4,25 @@
 
     첫번째줄에 나이트가 이동할 수 있는 경우의 수를 출력하시오.
 """
+# 좌표 입력받기
+coordinate = input()
+# 위치 변환
+row = int(coordinate[1])
+column = int(ord(coordinate[0])) - int(ord('a')) +1
+count = 0 # 경우의 수 계산
 
-input_data = input() # 현재 나이트의 위치 입력받
+# step 8가지 (나이트가 움직일 수 있는 경우의 수)
+dx = [-2, -2, 2, 2, -1, 1, 1, -1 ]
+dy = [-1, 1, 1, -1, -2, -2, 2, 2 ]
 
-row = int(input_data[1])
-colums = int(ord(input_data[0]))-int(ord('a')) + 1
-count = 0
-
-# 나이트가 이동할 수 있는 8가지 방향 정의
-steps = [(1,2),(1,-2),(-1,2),(-1,-2),(2,1),(2,-1),(-2,1),(-2,-1)]
-
-# 나이트가 이동가능한지 여부 판단
-for i in steps:
-    next_row = row + i[0]
-    next_colums = colums + i[1]
-    # 해당 위치로 이동 가능할시 카운트 증가
-    if next_row < 9 and next_row > 0 and next_colums < 9 and next_colums > 0:
+for i in range(7+1):
+    nx = row + dx[i]
+    ny = column + dy[i]
+    if nx > 0 and nx < 8+1 and ny > 0 and ny < 8+1:
         count += 1
 
 print(count)
+
+
+
+
