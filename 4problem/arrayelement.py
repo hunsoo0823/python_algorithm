@@ -20,6 +20,7 @@ b.sort(reverse=True) #₩오름차순
 
 
 
+
 for i in range(k):
     if a[i]<b[i]:
         a[i], b[i] = b[i], a[i]

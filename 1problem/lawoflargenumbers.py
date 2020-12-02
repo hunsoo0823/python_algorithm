@@ -16,5 +16,5 @@ input_ary.sort(reverse=True)
 first_big = input_ary[0]
 second_big = input_ary[1]
 
-result = (m // (k+1)) * (first_big*k + second_big) + (first_big * m%(k+1)) # 결과 계산
+result = (m // (k+1)) * (first_big*k + second_big) + (first_big * m%(k+1)) #
 print(result)
