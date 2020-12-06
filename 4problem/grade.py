@@ -6,6 +6,22 @@
  - 출력조건
     모든 학생의 이름을 성적이 낮은 순서대로 출력한다. 성적이 동일한 학생들의 순서는 자유롭게 출력해도 괜찮다.
 """
+
+n = int(input())
+array= []
+
+for i in range(n):
+    input_data = list(input().split())
+    array.append((input_data[0], int(input_data[1])))
+
+array = sorted(array, key=lambda student: student[1])
+
+for student in array:
+    print(student[0], end=' ')
+
+
+
+"""
 # N을 입력받기
 n = int(input())
 
@@ -20,3 +36,6 @@ array = sorted(array, key=lambda student: student[1])
 
 for student in array:
     print(student[0],end=' ')
+"""
+
+

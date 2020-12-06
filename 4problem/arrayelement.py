@@ -8,6 +8,22 @@
     최대 K번의 바꿔치기 연산을 수행하여 만들 수 있는 배열 A의 모든 원소의 합의 최갯값을 출력한다.
 """
 
+n, k = map(int, input().split())
+
+a = list(map(int,input().split()))
+b = list(map(int,input().split()))
+
+a.sort()
+b.sort(reverse=True)
+
+for i in range(k):
+    if a[i] < b[i]:
+        a[i], b[i] = b[i], a[i]
+    else:d
+        break
+
+print(sum(a))
+
 n,k = map(int, input().split()) # N과 K를 입력받기
 
 a = list(map(int, input().split())) # 배열 A의 모든 원소를 입력받기
@@ -15,11 +31,6 @@ b = list(map(int, input().split())) # 배열 B의 모든 원소를 입력받기
 
 a.sort() # 내림차순
 b.sort(reverse=True) #₩오름차순
-
-
-
-
-
 
 for i in range(k):
     if a[i]<b[i]:
