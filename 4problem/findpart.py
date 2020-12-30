@@ -8,6 +8,39 @@
     - 첫째 줄에 공백으로 구분하여 각 부품이 존재하면 yes를 없으면 no를 출력한다.
 """
 
+def binary_search(array, target, start, end):
+    if start > end:
+        return False
+    mid = (start + end) // 2
+
+    if array[mid] == target:
+        return True
+    elif array[mid] < target:
+        return binary_search(array, target, start, mid-1)
+    else:
+        return binary_search(array, target, mid+1, end)
+
+n = int(input())
+shop_part = []
+
+shop_part = list(map(int, input().split()))
+shop_part.sort()
+
+print(shop_part)
+customer_part = []
+m = int(input())
+customer_part = list(map(int, input().split()))
+
+print(customer_part)
+
+for part in customer_part:
+    result = binary_search(shop_part, part, 0, n-1)
+    if result == True:
+        print('yes', end= ' ')
+    else:
+        print('no', end= ' ')
+
+"""
 # 이진 탐색 소스코드 구현(재귀)
 def binarysearch(array, target, start, end):
     if start > end:
@@ -43,4 +76,4 @@ for i in array_cus:
         print('yes', end=' ')
     else:
         print('no', end=' ')
-            
+"""

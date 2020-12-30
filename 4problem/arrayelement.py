@@ -19,7 +19,7 @@ b.sort(reverse=True)
 for i in range(k):
     if a[i] < b[i]:
         a[i], b[i] = b[i], a[i]
-    else:d
+    else:
         break
 
 print(sum(a))
