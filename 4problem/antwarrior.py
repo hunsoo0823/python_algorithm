@@ -18,6 +18,7 @@ d[1] = array[1]
 for i in range(2, n):
     d[i] = max(int(d[i-2])+array[i], d[i-1])
 
+
 print(d[n-1])
 """
 # 정수 N을 입력 받기
