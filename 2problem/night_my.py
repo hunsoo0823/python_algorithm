@@ -4,6 +4,7 @@
 
     첫번째줄에 나이트가 이동할 수 있는 경우의 수를 출력하시오.
 """
+"""
 # 좌표 입력받기
 coordinate = input()
 # 위치 변환
@@ -22,7 +23,24 @@ for i in range(7+1):
         count += 1
 
 print(count)
+"""
 
+# 좌표 입력받기
+coordinate = input()
 
+# 위치 변환
+row = int(coordinate[1])
+column = int(ord(coordinate[0])) - int(ord('a')) +1
 
+steps = [(-2,-1), (-1, -2), (1, -2), (2, -1), (2, 1), (1, 2), (-1, 2), (-2, 1)]
 
+result = 0
+for step in steps:
+    # 이동하고자 하는 위치 확인
+    next_row = row + step[0]
+    next_column = column + step[1]
+
+    if next_row > 0 and next_column < 9 and next_column > 0 and next_column < 9:
+        result += 1
+
+print(result)

@@ -4,6 +4,7 @@
 단, 거슬러 줘야 할 돈 N은 항상 10의 배수이다.
 """
 
+'''
 n = 1260
 count = 0
 
@@ -14,3 +15,16 @@ for coin in coin_type:
   n %= coin
 
 print(count)
+'''
+
+n = 1260
+count = 0
+
+coin_type = [500, 100, 50, 10]
+
+for coin in coin_type:
+  count += n // coin
+  n %= coin
+
+print(count)
+

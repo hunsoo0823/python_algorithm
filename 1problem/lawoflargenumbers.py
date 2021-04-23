@@ -5,7 +5,7 @@
 입력 조건 배열의 크기 N, 숫자가 더해지는 횟수 M, 그리고 K가 주어질 때, 큰수의 법칙에 따른 결과를 출력
 ( 2<=N<1,000 , 1<=M<=10,000, 1<=K<=10,000) 각 자연수는 공백으로 구분, K <= M
 """
-
+"""
 # n,m,k 의 값 입력받기
 n,m,k = map(int, input().split())
 
@@ -18,3 +18,19 @@ second_big = input_ary[1]
 
 result = (m // (k+1)) * (first_big*k + second_big) + (first_big * m%(k+1)) #
 print(result)
+"""
+
+# n,m,k의 값 입력받기
+n, m, k = map(int, input().split())
+result = 0
+
+input_arr = list(map(int, input().split()))
+input_arr.sort(reverse=True)
+
+for _ in range(m//(k+1)):
+    result += input_arr[0] * k + input_arr[1]
+
+result += input_arr[0] * (m%(k+1))
+
+print(result)
+

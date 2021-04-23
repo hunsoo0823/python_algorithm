@@ -7,6 +7,7 @@ rule
  이후에 해당 행에서 가장 숫자가 낮은 카드를 뽑을 것을 고려하여 최종적으로 가장 높은 숫자의 카드를 뽑을 수 있도록 전략을 새워야 한다.
 """
 # n,m을 입력받기
+"""
 n,m = map(int, input().split())
 
 min_line = 0
@@ -21,3 +22,14 @@ for i in range(n):
 
 print(max)
 
+"""
+n, m = input(map(int, input().split()))
+max = -1
+
+for i in range(n):
+    data = list(map(int, input().split))
+    data.sort() # data 내림 차순
+    if data[0] > max:
+        max = data[0]
+
+print(max)
