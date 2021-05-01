@@ -7,21 +7,22 @@
     - 적어도 M만큼의 떡을 집에 가져가기 위해 절단기에 설정할 수 있는 높이의 최댓값을 출력한다.
 """
 
-n, m = map(int,input().split())
-
-array = list(map(int, input().split()))
+n, m = map(int, input().split())
+rice_cake = list(map(int, input().split()))
 
 start = 0
-end = max(array)
+end = max(rice_cake)
 
 result = 0
-while(start<=end):
+
+while start <= end:
     total = 0
     mid = (start + end) // 2
 
-    for i in array:
-        if mid < i:
-            total += i - mid
+    for x in rice_cake:
+        if x > mid:
+            total += x - mid
+
     if total < m:
         end = mid - 1
     else:
@@ -30,31 +31,3 @@ while(start<=end):
 
 print(result)
 
-"""
-# n과 md의 갯수 입력받기
-n, m = map(int, input().split(' '))
-
-# 떡의 개별 높이 입력받기
-array = list(map(int, input().split(' ')))
-
-start = 0
-end = max(array)
-
-result = 0
-while(start <= end):
-    total = 0
-    mid = (start + end) // 2
-    # 떡 자르기
-    for i in array:
-        if mid < i:
-            total += i - mid
-    # 떡의 길이가 부족할 경우
-    if total < m:
-        end = mid - 1
-    # 떡의 길이가 남을 경우
-    else:
-        result = mid
-        start = mid + 1
-
-print(result)
-"""

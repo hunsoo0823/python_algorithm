@@ -9,3 +9,32 @@
 # n * m을 입력받음
 from collections import deque
 
+n, m = map(int, input().split())
+
+mapping = []
+for i in range(n):
+    mapping.append(list(map(int, input())))
+
+dx = [-1, 0, 1, 0]
+dy = [0, -1, 0, 1]
+
+def bfs(x,y):
+    queue = deque()
+    queue.append((x,y))
+
+    while queue:
+        x, y = queue.popleft()
+
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+
+            if nx < 0 or nx > n-1 or ny < 0 or ny > m-1:
+                continue
+            if mapping[nx][ny] == 1:
+                queue.append((nx,ny))
+                mapping[nx][ny] = mapping[x][y] + 1
+
+bfs(0,0)
+
+print((mapping[n-1][m-1]))

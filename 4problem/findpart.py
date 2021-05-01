@@ -8,72 +8,30 @@
     - 첫째 줄에 공백으로 구분하여 각 부품이 존재하면 yes를 없으면 no를 출력한다.
 """
 
-def binary_search(array, target, start, end):
-    if start > end:
-        return False
-    mid = (start + end) // 2
+def binary_search(start, end, target, array):
+    while start <= end:
+        mid = (start+end) // 2
 
-    if array[mid] == target:
-        return True
-    elif array[mid] < target:
-        return binary_search(array, target, start, mid-1)
-    else:
-        return binary_search(array, target, mid+1, end)
+        if array[mid] == target:
+            return mid
+        elif array[mid] > target:
+            end = mid - 1
+        else:
+            start = mid + 1
+    return None
 
 n = int(input())
-shop_part = []
 
-shop_part = list(map(int, input().split()))
-shop_part.sort()
+shop = list(map(int, input().split()))
+shop.sort()
 
-print(shop_part)
-customer_part = []
 m = int(input())
-customer_part = list(map(int, input().split()))
+cus = list(map(int, input().split()))
 
-print(customer_part)
-
-for part in customer_part:
-    result = binary_search(shop_part, part, 0, n-1)
-    if result == True:
-        print('yes', end= ' ')
-    else:
-        print('no', end= ' ')
-
-"""
-# 이진 탐색 소스코드 구현(재귀)
-def binarysearch(array, target, start, end):
-    if start > end:
-        return False
-
-    mid = (start+end)//2
-
-    if array[mid] == target:
-        return True
-    elif array[mid] > target:
-        return binarysearch(array, target, start, mid-1)
-    else:
-        return binarysearch(array, target, mid+1, end)
-
-   
-array_shop = []
-# 상점의 n개의 부품 번호  
-n = int(input())
-array_shop = list(map(int, input().split()))
-array_shop.sort()
-
-# 손님의 m개의 부품 번호
-array_cus = []
-m = int(input())
-array_cus = list(map(int, input().split()))
-array_cus.sort()
-
-
-for i in array_cus:
-    result = binarysearch(array_shop, i, 0, n-1) # 이진탐색으로 찾기
-    
-    if result == True:
+for i in range(m):
+    result = binary_search(0, n, cus[i], shop)
+    if result != None:
         print('yes', end=' ')
     else:
         print('no', end=' ')
-"""
+

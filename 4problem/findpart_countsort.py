@@ -3,16 +3,18 @@
 """
 
 n = int(input())
-array = [0] * 1000001
+
+shop = [0] * 1000001
 
 for i in input().split():
-    array[int(i)] = 1
+    shop[int(i)] = 1
 
 m = int(input())
-x = list(map(int, input().split()))
+cus = list(map(int, input().split()))
 
-for i in x:
-    if array[i] == 1:
+for i in cus:
+    if shop[i] == 1:
         print('yes', end=' ')
     else:
-        print('no', end=' ')
+        print('no',end=' ')
+
