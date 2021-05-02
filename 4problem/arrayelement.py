@@ -8,17 +8,15 @@
     최대 K번의 바꿔치기 연산을 수행하여 만들 수 있는 배열 A의 모든 원소의 합의 최갯값을 출력한다.
 """
 
-n, k = map(int, input().split())
-a = list(map(int, input().split()))
-b = list(map(int, input().split()))
+# 정수 n 입력받음
+n = int(input())
 
-a.sort()
-b.sort(reverse=True)
+warehouse = list(map(int, input().split()))
+d = [0] * 101
+d[0] = warehouse[0]
+d[1] = max(warehouse[0], warehouse[1])
 
-for i in range(k):
-    if a[i] < b[i]:
-        a[i], b[i] = b[i], a[i]
-    else:
-        break
+for i in range(2, n):
+    d[i] = max(d[i-1], d[i-2]+ warehouse[i])
 
-print(sum(a))
+print(d[n-1])
