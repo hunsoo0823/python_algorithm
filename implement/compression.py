@@ -29,4 +29,5 @@ str_origin = input()
 sol = solution(str_origin)
 
 
+
 print('문자열을 {}개 단위로 압축했을 때 가장 짧습니다.'.format(sol))
