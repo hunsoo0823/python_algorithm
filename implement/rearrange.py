@@ -17,4 +17,6 @@ str_alpha.sort()
 
 for str in str_alpha:
     print(str, end='')
-print(num)
+    
+if num != 0:
+    print(num)
