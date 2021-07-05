@@ -1,9 +1,5 @@
+item = ['1','2','3','4','5']
 
-array_map = []
-
-array_map.append([2,1,1])
-array_map.append([3,3,1])
-
-array_map.remove([2,1,1])
-print(array_map)
-
+from itertools import combinations
+result = list(combinations(item, 2))
+print(result)
