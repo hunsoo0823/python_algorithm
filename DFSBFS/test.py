@@ -1,8 +1,6 @@
-str = "abcdefg"
-result = ''
 
-for s in str:
-    result += s
-    print(s)
+a = 3
+b = -4
 
-print(result)
+b = int(b / a)
+print(b)
