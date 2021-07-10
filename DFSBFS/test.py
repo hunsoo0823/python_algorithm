@@ -1,6 +1,8 @@
+from collections import deque
 
-a = 3
-b = -4
+q = deque()
 
-b = int(b / a)
-print(b)
+q.append((1,2,3))
+a, b, c = q.popleft()
+
+print(a,b,c)

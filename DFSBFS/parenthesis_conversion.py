@@ -12,9 +12,6 @@
     4-5 생성된 문자열을 반환합니다.
 """
 
-from typing import ValuesView
-
-
 def solution(input_str):
     left_count = 0
     right_count = 0
