@@ -24,9 +24,9 @@ def solution(n, weak, dist):
                         break
                     position = weak[index] + friends[count - 1]
             answer = min(answer, count) # 최솟값 계산
-        if answer > lend(dist):
+    if answer > len(dist):
             return -1
-        return answer
+    return answer    
 
     
 
