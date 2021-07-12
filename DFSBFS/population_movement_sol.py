@@ -34,14 +34,40 @@ def process(x, y, index):
             ny = y + dy[i]
 
             # 바로 옆에 있는 나라를 확인하여
-            if 0 <= nx and 0 <= ny and union[nx][ny] == -1:
+            if 0 <= nx < n and 0 <= ny < n and union[nx][ny] == -1:
                 # 옆의 있는 나라의 인구 차이가 L명 이상, R명 이하라면
-                if l <= abs(graph[nx][ny] - graph[x][y] <= r):
+                if l <= abs(graph[nx][ny] - graph[x][y]) <= r:
                     q.append((nx,ny))
                     # 연합에 추가
                     union[nx][ny] = index
                     summary += graph[nx][ny]
                     count += 1
-
+                    untied.append((nx,ny))
+    
     # 연합 국가끼리 인구를 분해
     for i, j in untied:                
+        graph[i][j] = summary // count
+    return count 
+
+total_count = 0
+
+# 더 이상 인구 이동을 할 수 없을 때 까지 반복
+while True:
+    union = [[-1] * n for _ in range(n)]
+    index = 0
+    for i in range(n):
+        for j in range(n):
+            if union[i][j] == -1:
+                process(i, j, index)
+                index += 1
+    
+    if index == n * n:
+        break
+    total_count += 1
+
+# 인구 이동 횟수 출력
+print(total_count)
+
+
+        
+        
