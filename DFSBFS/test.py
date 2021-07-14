@@ -1,8 +1,5 @@
-from collections import deque
+mx = [[0,0], [0,0], [1,1], [-1,-1]]
+my = [[1,1], [-1,-1], [0,0], [0,0]]
 
-q = deque()
 
-q.append((1,2,3))
-a, b, c = q.popleft()
-
-print(a,b,c)
+print(mx[0])
