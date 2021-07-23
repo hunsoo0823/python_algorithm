@@ -35,6 +35,7 @@ def first(array, target, start, end):
 def last(array, target, start, end):
     if start > end:
         return None
+
     mid = (start + end) // 2
     # 해당 값을 가지는 원소 중에서 가장 오른쪽에 있는 경우에만 인덱스 반환
     if (mid == n - 1 or target < array[mid + 1]) and array[mid] == target:
