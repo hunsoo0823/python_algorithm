@@ -27,6 +27,7 @@ for i in range(1,n):
             # j = 0 일때 앞에 전투력이 높은 병사가 없음
             if j == 0:
                 result_power[j] = soldier[j]
+
 # 제외해야할 최대 수
 max_execption = n - result_num[result_power.index(max(result_power))]
 print(max_execption)
