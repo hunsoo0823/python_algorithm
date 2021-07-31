@@ -1,39 +1,50 @@
-INF = 100
+import heapq
+import sys
+input = sys.stdin.readline
+
+INF = int(1e9)
 #상하좌우
 dx = [-1,1,0,0]
 dy = [0,0,-1,1]
 
-# dfs함수
-def dfs(x, y):
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
+# 전체 테스트 케이스(Test Case)만큼 반복
+for tc in range(int(input())):
+    # 노드의 개수를 입력받기
+    n = int(input())
 
-        if nx < 0 or nx >= n or ny < 0 or ny >= n:
+    # 전체 맵 정보를 입력받음
+    graph = []
+    for i in range(n):
+        graph.append(list(map(int, input().split())))
+
+    # 최단 거리 테이블을 모두 무한으로 초기화
+    distance = [[INF] * n for _ in range(n)]
+        
+    x, y = 0, 0 # 시작 위치는 (0, 0)
+    # 시작 노드로 가기 위한 비용은 (0, 0) 위치 값으로 설정하며, 큐에 삽입
+    q = [(graph[x][y], x, y)]
+    distance[x][y] = graph[x][y]
+    
+    while q:
+        # 가장 최단 거리가 짧은 노드에 대한 정보를 꺼내기
+        dist, x, y = heapq.heappop(q)
+
+        # 현재 노드가 이미 처리된 적이 있는 노드라면 무시
+        if distance[x][y] < dist:
             continue
         
-        result_array[nx][ny] = min(result_array[nx][ny], array_mars[nx][ny] + result_array[x][y])
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
 
-        #for re in result_array:
-        #   print(re)
-        
-        print(nx, ny)
-        dfs(nx,ny)
+            # 맵의 위치를 벗어나느 경우 무시
+            if nx < 0 or nx >= n or ny < 0 or ny >= n:
+                continue
+            cost = dist + graph[nx][ny]
+            # 현재 노드를 거쳐서, 다른 노드로 이동하는 거리가 더 짧은 경우
+            if cost < distance[nx][ny]:
+                distance[nx][ny] = cost
+                heapq.heappush(q, (cost, nx, ny))
 
-# 테스트 케이스의 수 입력받기
-for i in range(int(input())):
-    
-    # 탐사 공간의 크기 n
-    n = int(input())
-    
-    array_mars = []
-    for i in range(n):
-        array_mars.append(list(map(int, input().split())))
-
-    # 결과를 저장할 맵
-    result_array = [[INF] * n for _ in range(n)]
-    result_array[0][0] = array_mars[0][0]
-
-    dfs(0, 0)
-    
+print(distance[n-1][n-1])
 

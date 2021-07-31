@@ -63,12 +63,6 @@ while count < 2000:
                     queue_r += q
                     queue_c += 1
                 
-                
-
-                
-
-           
-    
     count += 1
 
     
